@@ -94,19 +94,26 @@
 
 .tilter__caption {
   position: absolute;
+  top: 0;
+  right: 0;
   bottom: 0;
+  left: 0;
   width: 100%;
-  height: 50%;
-  padding: 1em 4em;
+  height: 100%;
+  display: table;
 }
 
 .tilter__title {
-  display: inline-block;
+  display: table-cell;
+  vertical-align: middle;
   margin: 0 auto;
+    padding: 1em 2em;
   font-weight: normal;
-  font-size: 1em;
+  font-size: 1.5em;
   line-height: 1;
   text-align: left;
+  width: 100%;
+  height: 100%;
 }
 
 .tilter__title img {
