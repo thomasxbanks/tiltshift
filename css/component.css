@@ -1,8 +1,8 @@
 .tilter {
   display: inline-block;
   position: relative;
-  width: 800px;
-  height: 800px;
+  width: 400px;
+  height: 400px;
   margin: 1.5em;
   color: #fff;
   flex: none;
@@ -104,7 +104,7 @@
   display: inline-block;
   margin: 0 auto;
   font-weight: normal;
-  font-size: 3em;
+  font-size: 1em;
   line-height: 1;
   text-align: left;
 }
