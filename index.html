@@ -51,31 +51,30 @@
 
 <body class="loading">
   <main>
+    <section class="content content--c0" style="display: block;">
 
-    <svg class="svg-graphic" width="180" height="200" viewBox="0 0 560 645" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" version="1.1">
-    <g>
-       <clipPath id="hexagonal-mask">
-          <polygon points="130,0 0,160 0,485 270,645 560,485 560,160" />
-       </clipPath>
-    </g>
-    <a xlink:href="http://www. web-expert.it">
-     <image clip-path="url(#hexagonal-mask)" height="100%" width="100%" xlink:href="img.jpg" />
-    </a>
-</svg>
+      <a href="#" class="tilter tilter--1">
+        <figure class="tilter__figure">
+          <svg id="image-fill" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="400" xmlns:xlink="http://www.w3.org/1999/xlink">
 
-<svg id="image-fill" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="300" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+               <pattern id="image-bg" x="0" y="0" height="800" width="800" patternUnits="userSpaceOnUse">
+                 <image width="400" height="400" xlink:href="http://placekitten.com/g/400/400"></image>
+              </pattern>
+            </defs>
 
-  <defs>
-     <pattern id="image-bg" x="0" y="0" height="300" width="300" patternUnits="userSpaceOnUse">
-       <image width="300" height="300" xlink:href="http://placekitten.com/306/306"></image>
-    </pattern>
-  </defs>
+            <polygon class="hex" points="400 100,400 300,200 400,0 300,0 100,200 0" fill="url('#image-bg')"></polygon>
 
-  <polygon class="hex" points="300,150 225,280 75,280 0,150 75,20 225,20" fill="url('#image-bg')"></polygon>
+          </svg>
+          <figcaption class="tilter__caption">
+            <h3 class="tilter__title"><img src="http://placecage.com/50/50" alt="Company Logo">Integrated services<br />at your fingertips</h3>
+          </figcaption>
+        </figure>
+      </a>
+    </section>
 
-</svg>
 
-    <section class="content content--c1">
+    <section class="content content--c1" style="display: none;">
 
       <a href="#" class="tilter tilter--1">
         <figure class="tilter__figure">
