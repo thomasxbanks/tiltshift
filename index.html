@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tilt Hover Effects | Codrops</title>
+  <title>TiltShift</title>
   <meta name="description" content="Some ideas for hover effects with a fancy tilt effect" />
   <meta name="keywords" content="tilt, hover, effect, demo, inspiration, animation, template" />
   <meta name="author" content="Codrops" />
@@ -19,27 +19,79 @@
     }
 
     body {
-      display: table;
+      margin: 0;
+      padding: 0;
       width: 100%;
       height: 100vh;
       font-family: "Mukta Vaani" !important;
       font-weight: 700;
+      color: #fafaf0;
       background-image: url('http://placekitten.com/g/19/11');
       background-size: cover;
+      display: table;
     }
 
     main {
+      max-width: 960px;
+      margin: 0 auto;
       display: table-cell;
-      width: 100%;
-      height: 100%;
       vertical-align: middle;
       text-align: center;
     }
-
     /*REDLINE*/
 
     * {
       /*box-shadow: inset -1px -1px 0 rgba(255, 0, 0, 0.25), inset 1px 1px 0 rgba(255, 0, 0, 0.25);*/
+      /*background: rgba(180, 255, 0, 0.12);*/
+    }
+
+    .mobile {
+      display: block;
+    }
+
+    .tablet {
+      display: none;
+    }
+
+    .desktop {
+      display: none;
+    }
+
+    .tilter__caption {
+      width: 172px;
+      height: 200px;
+    }
+
+    @media screen and (min-width: 450px) {
+      .mobile {
+        display: none;
+      }
+      .tablet {
+        display: block;
+      }
+      .desktop {
+        display: none;
+      }
+      .tilter__caption {
+        width: 344px;
+        height: 400px;
+      }
+    }
+
+    @media screen and (min-width: 850px) {
+      .mobile {
+        display: none;
+      }
+      .tablet {
+        display: none;
+      }
+      .desktop {
+        display: block;
+      }
+      .tilter__caption {
+        width: 688px;
+        height: 800px;
+      }
     }
   </style>
   <!--[if IE]>
@@ -52,38 +104,97 @@
 
 <body class="loading">
   <main>
-    <section class="content content--c0" style="display: block;">
-
-      <a href="#" class="tilter tilter--1">
-        <figure class="tilter__figure">
-          <svg id="image-fill" xmlns="http://www.w3.org/2000/svg" version="1.1" width="400" height="400" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <section class="tilter">
+      <figure class="tilter__figure">
+        <svg id="image-fill" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 688 800" xmlns:xlink="http://www.w3.org/1999/xlink">
 
             <defs>
-               <pattern id="image-bg" x="0" y="0" height="400" width="400" patternUnits="userSpaceOnUse">
-                 <image width="400" height="400" xlink:href="http://placecage.com/400/400"></image>
+               <pattern id="image-bg" x="0" y="0" height="688" width="800" patternUnits="userSpaceOnUse">
+                 <image width="688" height="800" xlink:href="http://placekitten.com/688/800"></image>
               </pattern>
             </defs>
 
-            <polygon class="hex" points="335.4 105,335.4 295,172 390,10 295,10 105,172 10" fill="url('#image-bg')"></polygon>
+            <polygon class="hex desktop" points="670.8 210,670.8 590,344 780,20 590,20 210,344 20" fill="url('#image-bg')"></polygon>
+            <polyline class="outline desktop" points="688 200,688 600,344 800,0 600,0 200,344 0, 688 200" style="fill:none;stroke:orange;stroke-width:2" />
 
-            <polyline points="344 100,344 300,172 400,0 300,0 100,172 0, 344 100" style="fill:none;stroke:white;stroke-width:2" />
+            <polygon class="hex tablet" points="335.4 105,335.4 295,172 390,10 295,10 105,172 10" fill="url('#image-bg')"></polygon>
+            <polyline class="outline tablet" points="344 100,344 300,172 400,0 300,0 100,172 0, 344 100" style="fill:none;stroke:white;stroke-width:2" />
+
+
+            <polygon class="hex mobile" points="167.7 52.5,167.7 147.5,86 195,5 147.5,5 52.5,86 5" fill="url('#image-bg')"></polygon>
+            <polyline class="outline mobile" points="172 50,172 150,86 200,0 150,0 50,86 0, 172 50" style="fill:none;stroke:green;stroke-width:2" />
 
           </svg>
-          <figcaption class="tilter__caption">
-            <h3 class="tilter__title"><img src="http://placekitten.com/45/45" alt="Company Logo">Integrated services<br />at your fingertips</h3>
-          </figcaption>
-        </figure>
-      </a>
+        <figcaption class="tilter__caption">
+          <h3 class="tilter__title"><img src="http://placecage.com/45/45" alt="Company Logo">Integrated services<br />at your fingertips</h3>
+        </figcaption>
+      </figure>
     </section>
+
 
   </main>
   <script src="js/imagesloaded.pkgd.min.js"></script>
   <script src="js/anime.min.js"></script>
   <script src="js/main.js"></script>
   <script>
+    let imageFill = document.getElementById('image-fill')
+    let imageBg = document.getElementById('image-bg')
+    var browserWidth = window.innerWidth
+    var browserHeight = window.innerHeight
+    if (browserWidth < 450) {
+      imageFill.setAttribute('viewBox', '0 0 172 200')
+      imageFill.setAttribute('width', 172)
+      imageFill.setAttribute('height', 200)
+      imageBg.setAttribute('width', 172)
+      imageBg.setAttribute('height', 200)
+    }
 
+    if ((browserWidth < 850) && (browserWidth > 451)) {
+      imageFill.setAttribute('viewBox', '0 0 344 400')
+      imageFill.setAttribute('width', 344)
+      imageFill.setAttribute('height', 400)
+      imageBg.setAttribute('width', 344)
+      imageBg.setAttribute('height', 400)
+    }
 
-    ;(function() {
+    if (browserWidth > 851) {
+      imageFill.setAttribute('viewBox', '0 0 688 800')
+      imageFill.setAttribute('width', 688)
+      imageFill.setAttribute('height', 800)
+      imageBg.setAttribute('width', 688)
+      imageBg.setAttribute('height', 800)
+    }
+
+    window.onresize = (event) => {
+      var browserWidth = window.innerWidth
+      var browserHeight = window.innerHeight
+      if (browserWidth < 450) {
+        imageFill.setAttribute('viewBox', '0 0 172 200')
+        imageFill.setAttribute('width', 172)
+        imageFill.setAttribute('height', 200)
+        imageBg.setAttribute('width', 172)
+        imageBg.setAttribute('height', 200)
+      }
+
+      if ((browserWidth < 850) && (browserWidth > 451)) {
+        imageFill.setAttribute('viewBox', '0 0 344 400')
+        imageFill.setAttribute('width', 344)
+        imageFill.setAttribute('height', 400)
+        imageBg.setAttribute('width', 344)
+        imageBg.setAttribute('height', 400)
+      }
+
+      if (browserWidth > 851) {
+        imageFill.setAttribute('viewBox', '0 0 688 800')
+        imageFill.setAttribute('width', 688)
+        imageFill.setAttribute('height', 800)
+        imageBg.setAttribute('width', 688)
+        imageBg.setAttribute('height', 800)
+      }
+    }
+
+    ;
+    (function() {
       var tiltSettings = [{},
         {
           movement: {
@@ -482,7 +593,7 @@
 
       function init() {
         var idx = 0;
-        [].slice.call(document.querySelectorAll('a.tilter')).forEach(function(el, pos) {
+        [].slice.call(document.querySelectorAll('.tilter')).forEach(function(el, pos) {
           idx = pos % 2 === 0 ? idx + 1 : idx;
           new TiltFx(el, tiltSettings[idx - 1]);
         });
