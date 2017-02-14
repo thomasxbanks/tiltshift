@@ -10,7 +10,7 @@
   <meta name="keywords" content="tilt, hover, effect, demo, inspiration, animation, template" />
   <meta name="author" content="Codrops" />
   <link rel="shortcut icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Mukta+Vaani:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="css/component.css" />
   <style>
@@ -23,9 +23,6 @@
       padding: 0;
       width: 100%;
       height: 100vh;
-      font-family: "Mukta Vaani" !important;
-      font-weight: 700;
-      color: #fafaf0;
       background-image: url('//placekitten.com/g/19/11');
       background-size: cover;
       display: table;
@@ -101,6 +98,7 @@
         display: inline-block;
       }
     }
+
   </style>
   <!--[if IE]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -118,7 +116,7 @@
 
             <defs>
                <pattern id="image-bg" x="0" y="0" height="688" width="800" patternUnits="userSpaceOnUse">
-                 <image width="688" height="800" xlink:href="//placekitten.com/688/800"></image>
+                 <image width="688" height="800" xlink:href="//placecage.com/688/800"></image>
               </pattern>
             </defs>
 
@@ -147,58 +145,50 @@
   <script>
     let imageFill = document.getElementById('image-fill')
     let imageBg = document.getElementById('image-bg')
+    let image = imageBg.querySelector('image')
+
     var browserWidth = window.innerWidth
     var browserHeight = window.innerHeight
+
+    let imageSize = (width, height) => {
+      imageFill.setAttribute('viewBox', '0 0 '+width+' '+height+'')
+      imageFill.setAttribute('width', width)
+      imageFill.setAttribute('height', height)
+      imageBg.setAttribute('width', width)
+      imageBg.setAttribute('height', height)
+      image.setAttribute('width', width)
+      image.setAttribute('height', height)
+    }
+
     if (browserWidth < 450) {
-      imageFill.setAttribute('viewBox', '0 0 172 200')
-      imageFill.setAttribute('width', 172)
-      imageFill.setAttribute('height', 200)
-      imageBg.setAttribute('width', 172)
-      imageBg.setAttribute('height', 200)
+      imageSize(172, 200)
     }
 
     if ((browserWidth < 850) && (browserWidth > 451)) {
-      imageFill.setAttribute('viewBox', '0 0 344 400')
-      imageFill.setAttribute('width', 344)
-      imageFill.setAttribute('height', 400)
-      imageBg.setAttribute('width', 344)
-      imageBg.setAttribute('height', 400)
+      imageSize(344, 400)
     }
 
     if (browserWidth > 851) {
-      imageFill.setAttribute('viewBox', '0 0 688 800')
-      imageFill.setAttribute('width', 688)
-      imageFill.setAttribute('height', 800)
-      imageBg.setAttribute('width', 688)
-      imageBg.setAttribute('height', 800)
+      imageSize(688, 800)
     }
 
     window.onresize = (event) => {
       var browserWidth = window.innerWidth
       var browserHeight = window.innerHeight
       if (browserWidth < 450) {
-        imageFill.setAttribute('viewBox', '0 0 172 200')
-        imageFill.setAttribute('width', 172)
-        imageFill.setAttribute('height', 200)
-        imageBg.setAttribute('width', 172)
-        imageBg.setAttribute('height', 200)
+        imageSize(172, 200)
       }
 
       if ((browserWidth < 850) && (browserWidth > 451)) {
-        imageFill.setAttribute('viewBox', '0 0 344 400')
-        imageFill.setAttribute('width', 344)
-        imageFill.setAttribute('height', 400)
-        imageBg.setAttribute('width', 344)
-        imageBg.setAttribute('height', 400)
+        imageSize(344, 400)
       }
 
       if (browserWidth > 851) {
-        imageFill.setAttribute('viewBox', '0 0 688 800')
-        imageFill.setAttribute('width', 688)
-        imageFill.setAttribute('height', 800)
-        imageBg.setAttribute('width', 688)
-        imageBg.setAttribute('height', 800)
+        imageSize(688, 800)
       }
+
+
+
     }
 
     ;
@@ -224,9 +214,9 @@
             },
             lines: {
               translation: {
-                x: 10,
-                y: 10,
-                z: [0, 70]
+                x: 1,
+                y: 1,
+                z: [0, 7]
               },
               rotation: {
                 x: 0,
